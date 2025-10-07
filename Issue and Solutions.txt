@@ -1,0 +1,36 @@
+Challenges & Solutions
+
+During the creation of this automation framework, several issues were encountered and resolved. Below is a summary of the main challenges and their solutions:
+
+1. Driver Initialization Error
+   Issue: java.lang.NullPointerException: Cannot invoke "io.appium.java\_client.AppiumDriver.findElement()" because "driver" is null.
+
+   Solution: Implemented constructor injection to pass the Appium driver instance from the Hook class into page classes.
+
+---
+
+2. Dependency Compatibility Issues
+   Issue: java.lang.NoClassDefFoundError: org/openqa/selenium/remote/RemoteWebDriver or version conflict errors when running with mismatched Appium Java Client and Selenium versions.
+
+   Solution: Fixed dependencies to a stable set:
+            * Selenium: 4.11.0
+            * Appium Java Client: 8.5.1
+            * TestNG: 7.27.0
+
+---
+
+3. Appium Server Connection Issues
+   Issue: org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: An unknown server-side error occurred while processing the command.
+
+   Solution:
+            * Android: Launched via Appium Desktop GUI.
+            * iOS: Launched via terminal using command:
+              appium --allow-cors
+
+---
+
+4. iOS WebDriverAgent (WDA) Issues
+   Issue: org.openqa.selenium.WebDriverException: Unable to launch WebDriverAgent because of xcodebuild failure or signing issues.
+   Tests failed with "WebDriverAgentRunner.xctest not found" or "Failed to launch WebDriverAgent because of bundleId mismatch".
+
+   Solution: Installed xcuitest driver, started Appium with --allow-cors, and configured correct bundleId with valid signing certificates in Xcode.
