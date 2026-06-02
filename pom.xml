@@ -96,13 +96,14 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.3</version>
                 <configuration>
-                    <includes>
-                        <include>**/TestNGRunnerTest.java</include>
-                    </includes>
+                    <!-- Run through the suite file so the parallel @DataProvider config applies -->
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
 
                     <useSystemClassLoader>false</useSystemClassLoader>
                     <systemPropertyVariables>
-                        <!-- Pass cucumber options here -->
+                        <!-- Default tag filter; override with -Dcucumber.filter.tags="@regression" -->
                         <cucumber.filter.tags>@smoke</cucumber.filter.tags>
                     </systemPropertyVariables>
 

@@ -1,0 +1,26 @@
+{
+  "_comment": "The pool of devices available for execution. Concurrency is bounded by how many entries exist for the target platform. To run N Android scenarios in parallel, add N entries with DISTINCT deviceName/avd AND distinct systemPort. For iOS, use distinct udid + wdaLocalPort.",
+  "devices": [
+    {
+      "platform": "Android",
+      "deviceName": "emulator-5554",
+      "platformVersion": "14",
+      "avd": "Pixel_8",
+      "systemPort": 8200
+    },
+    {
+      "platform": "Android",
+      "deviceName": "emulator-5556",
+      "platformVersion": "14",
+      "avd": "Pixel_8_API_34_clone",
+      "systemPort": 8201
+    },
+    {
+      "platform": "iOS",
+      "deviceName": "iPhone 16 Pro",
+      "platformVersion": "18.4",
+      "udid": "9F9D8AA3-89E1-43FF-B732-1257DCA213A4",
+      "wdaLocalPort": 8100
+    }
+  ]
+}

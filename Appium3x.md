@@ -60,6 +60,11 @@ Resolved dependency tree (no conflict — direct pin wins over the transitive ra
 
 ## 2. `AppLauncher.java` — capabilities & server URL
 
+> **Note:** This capability code was later extracted out of `AppLauncher` into
+> `DriverFactory` (builds the driver) + `DriverManager` (per-thread `ThreadLocal`)
+> during the scalability refactor, and `AppLauncher` was removed. The Appium-3.x
+> specifics below are unchanged — they now live in `DriverFactory`.
+
 ### a) `DesiredCapabilities` → typed `Options` builders
 
 Appium 3.x is strictly W3C: every non-standard capability must carry the
@@ -154,6 +159,8 @@ emulator/simulator:
 
 ## Not yet addressed (pre-existing, optional)
 
-- `Hook.java` still hardcodes `initializeDriver("Android")` despite the README
-  documenting dynamic `-Dplatform=` switching.
 - Log4j2 is a dependency but unused (no `log4j2.xml`; code uses `System.out`).
+- `BasePage` + explicit-wait helpers (Phase 4) — page objects still use PageFactory only.
+
+> The previously-listed hardcoded `"Android"` platform is now resolved: `Hook`
+> reads the target platform from `config.properties`, overridable with `-Dplatform=iOS`.

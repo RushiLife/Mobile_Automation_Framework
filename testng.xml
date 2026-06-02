@@ -1,8 +1,15 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Cucumber TestNG Suite" verbose="1" parallel="tests" thread-count="1">
+<!--
+  Parallel execution:
+    * Cucumber scenarios are fed through TestNGRunnerTest's @DataProvider(parallel = true).
+    * data-provider-thread-count = the max number of scenarios that may run concurrently.
+    * Actual concurrency is throttled by the device pool (src/main/resources/config/devices.json):
+      a thread runs only once DeviceManager hands it a free device.
+  Run via Maven: mvn test  (surefire is configured to use this suite file)
+-->
+<suite name="Cucumber TestNG Suite" verbose="1" parallel="methods" data-provider-thread-count="3">
     <test name="Cucumber Test">
         <classes>
-            <!-- Full package path to your TestRunner -->
             <class name="com.qa.runners.TestNGRunnerTest"/>
         </classes>
     </test>

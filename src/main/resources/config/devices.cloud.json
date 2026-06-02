@@ -1,0 +1,20 @@
+{
+  "_comment": "Device matrix used when execution.target != local (e.g. browserstack). deviceName + platformVersion MUST match the provider's device catalog. avd/udid/systemPort/wdaLocalPort are NOT used in cloud (the farm manages sessions). To allow N concurrent sessions on a device, list it N times.",
+  "devices": [
+    {
+      "platform": "Android",
+      "deviceName": "Samsung Galaxy S23",
+      "platformVersion": "13.0"
+    },
+    {
+      "platform": "Android",
+      "deviceName": "Google Pixel 8",
+      "platformVersion": "14.0"
+    },
+    {
+      "platform": "iOS",
+      "deviceName": "iPhone 15 Pro",
+      "platformVersion": "17"
+    }
+  ]
+}
