@@ -25,7 +25,8 @@
       <dependency>
           <groupId>org.seleniumhq.selenium</groupId>
           <artifactId>selenium-java</artifactId>
-          <version>4.11.0</version> <!-- latest stable -->
+          <!-- Pinned within java-client 9.4.0's required range [4.26.0, 5.0) for a reproducible build -->
+          <version>4.33.0</version>
       </dependency>
 
       <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
@@ -38,7 +39,8 @@
       <dependency>
           <groupId>io.appium</groupId>
           <artifactId>java-client</artifactId>
-          <version>8.5.1</version>
+          <!-- 9.x is the line compatible with Appium Server 2.x/3.x -->
+          <version>9.4.0</version>
       </dependency>
 
       <!-- https://mvnrepository.com/artifact/org.json/json -->
